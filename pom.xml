@@ -7,50 +7,60 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>payment-api</module>
-        <module>payment-privoder</module>
+        <module>payment-provider</module>
         <module>payment-consumer</module>
     </modules>
     <name>study-cloud</name>
 
-  <properties>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
-    <lombok.version>1.16.18</lombok.version>
-    <spring-cloud.version>2020.0.4</spring-cloud.version>
-  </properties>
+        <lombok.version>1.16.18</lombok.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+        <alibaba-cloud.version>2.2.1.RELEASE</alibaba-cloud.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
-          <!--Spring Cloud Alibaba 的版本信息-->
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2021.1</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
-          <!--Spring Cloud 的版本信息-->
-          <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>${spring-cloud.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-          </dependency>
+            <!--Spring Cloud 的版本信息-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
-  <dependencies>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>${lombok.version}</version>
-          <scope>provided</scope>
-      </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

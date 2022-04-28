@@ -1,25 +1,34 @@
 #log
 logging:
-  file:
-    path: D:/logs/springboot-demo/consumer
-  logback:
-    rollingpolicy:
-      max-history: 10
+  path: D:\\logs\\study-cloud\\payment-consumer
+
 #
 server:
   port: 8087
 
+spring:
+  application:
+    name: payment-consumer
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 127.0.0.1:8848
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+
 #dubbo
+
 dubbo:
   metadata-report:
-    address: zookeeper://127.0.0.1:2181
+    address: nacos://127.0.0.1:8848
   application:
-    name: consumer
+    name: ${spring.application.name}
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: nacos://127.0.0.1:8848
   protocol:
     name: dubbo
     port: 20880
   consumer:
     check: false
-    filter: dubboBusinessFilter
+
